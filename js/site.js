@@ -5,6 +5,7 @@
 
   // URL do Web App do Apps Script (Gerenciar implantações → a implantação existente).
   // Pode ser pública: a credencial é o token de cada convite.
+  // O parâmetro se chama "token", não "c": o Apps Script reserva "c" e "sid" (dá erro 400).
   var API = 'https://script.google.com/macros/s/AKfycbyfEHiy2sMcDXFXvy9kptuo9J1JTwaGdQuihVVgpfDBSfPqRwnV1eXDIJEKWaByqDo_/exec';
 
   var WEDDING = { y: 2027, m: 5, d: 15 };
@@ -82,7 +83,7 @@
       });
     }
     if (!token) return Promise.resolve({ ok: false, erro: 'nao_encontrado' });
-    return comTimeout(fetch(API + '?c=' + encodeURIComponent(token), { cache: 'no-store' }))
+    return comTimeout(fetch(API + '?token=' + encodeURIComponent(token), { cache: 'no-store' }))
       .then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.json(); });
   }
 
@@ -245,7 +246,7 @@
     erroForm('');
 
     var recado = $('recado').value.trim().slice(0, RECADO_MAX);
-    var dados = { c: state.token, resposta: marcado.value, recado: recado };
+    var dados = { token: state.token, resposta: marcado.value, recado: recado };
     var btn = $('submit'), textoBtn = btn.textContent;
 
     state.enviando = true;

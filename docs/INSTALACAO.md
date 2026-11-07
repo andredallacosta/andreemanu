@@ -27,6 +27,7 @@ A aba nasce com o cabeçalho certo. As colunas cinza são automáticas: **não e
 3. Descrição: `v1`. **Executar como: Eu.** **Quem pode acessar: Qualquer pessoa.**
 4. **Implantar** → copie a **URL do app da Web** (termina em `/exec`).
 5. Cole a URL em [`js/site.js`](../js/site.js), na linha `var API = '...'` (ou mande para o Claude colocar).
+6. **Teste:** abra numa **janela anônima** a URL do Web App com `?token=zzzzzz` no fim. Tem que aparecer `{"ok":false,"erro":"nao_encontrado"}` (token falso, não marca nada na planilha). Se aparecer "Página não encontrada" ou uma tela de login, confira "Quem pode acessar: Qualquer pessoa".
 
 > ⚠️ **A pegadinha:** daqui pra frente, ao mudar o script, **nunca** use "Nova implantação". Use **Implantar → Gerenciar implantações → lápis → Versão: Nova versão → Implantar**. Uma implantação nova gera outra URL e o site para de funcionar.
 

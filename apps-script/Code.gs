@@ -103,9 +103,13 @@ function gerarTokens() {
 }
 
 // ---------------- API do site ----------------
-/** GET ?c=<token> → { ok, nomes, resposta, recado } */
+/**
+ * GET ?token=<token> → { ok, nomes, resposta, recado }
+ * (Não usar "c" nem "sid" como nome de parâmetro: são reservados pelo Apps Script e dão erro 400.
+ *  O link do convidado continua andreemanu.site/?c=..., que é o GitHub Pages, não o Apps Script.)
+ */
 function doGet(e) {
-  var token = limparToken_(e && e.parameter && e.parameter.c);
+  var token = limparToken_(e && e.parameter && e.parameter.token);
   if (!token) return json_({ ok: false, erro: 'nao_encontrado' });
 
   var sh = aba_();
@@ -138,12 +142,12 @@ function doGet(e) {
   });
 }
 
-/** POST (corpo JSON enviado como text/plain) { c, resposta, recado } → { ok } */
+/** POST (corpo JSON enviado como text/plain) { token, resposta, recado } → { ok } */
 function doPost(e) {
   var body;
   try { body = JSON.parse(e.postData.contents); } catch (err) { return json_({ ok: false, erro: 'json_invalido' }); }
 
-  var token = limparToken_(body.c);
+  var token = limparToken_(body.token);
   var resposta = String(body.resposta || '');
   var recado = String(body.recado == null ? '' : body.recado).replace(/\r\n?/g, '\n').trim().slice(0, RECADO_MAX);
 

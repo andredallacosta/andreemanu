@@ -356,8 +356,10 @@ Google Sheets — aba "Convites"
 **API (só duas operações):**
 | Operação | Entrada | Saída | Efeito |
 |---|---|---|---|
-| Buscar convite | `GET ?c=<token>` | `{ nomes: [...], resposta, recado }` ou "não encontrado" | Marca `abriu_em` (se vazio) e `ultima_abertura` |
-| Responder | `POST` (corpo JSON como `text/plain`, para evitar preflight de CORS) `{ c, resposta, recado }` | `{ ok: true }` | Grava `resposta`, `recado`, `respondeu_em` na linha do token |
+| Buscar convite | `GET ?token=<token>` | `{ nomes: [...], resposta, recado }` ou "não encontrado" | Marca `abriu_em` (se vazio) e `ultima_abertura` |
+| Responder | `POST` (corpo JSON como `text/plain`, para evitar preflight de CORS) `{ token, resposta, recado }` | `{ ok: true }` | Grava `resposta`, `recado`, `respondeu_em` na linha do token |
+
+- ⚠️ O parâmetro da API se chama **`token`**, não `c`: o Apps Script reserva `c` e `sid`, e qualquer chamada com eles volta "Página não encontrada" (HTTP 400), que no navegador aparece como erro de CORS. Descoberto no primeiro teste real, em 07/11/2026. O link do convidado continua `andreemanu.site/?c=...`, porque esse é atendido pelo GitHub Pages.
 
 **Cuidados obrigatórios no script:**
 - Lê e escreve **só na aba "Convites"**. As outras abas (versões da lista) ficam intocadas.
