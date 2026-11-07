@@ -120,6 +120,13 @@ Abra `http://localhost:8000/?demo` para o convite de exemplo (Ricardo e Ana Paul
 
 ---
 
+## Atualizar o site depois de publicado
+
+O GitHub Pages deixa os arquivos **10 minutos em cache** no navegador. Por isso:
+- Mudou `css/site.css` ou `js/site.js`? **Suba o número** em `?v=2` (→ `?v=3`…) nas duas linhas do `index.html`. Assim quem abrir a página nova recebe o CSS/JS novo junto, sem misturar versões.
+- Para conferir uma mudança logo depois do push: **Cmd+Shift+R** ou janela anônima.
+- Mudança que envolve o site **e** o Apps Script ao mesmo tempo: durante esses 10 minutos, alguém pode estar com o JS antigo. Se possível, faça o script aceitar o jeito antigo e o novo por um tempo.
+
 ## Regerar arquivos (só se mudar algo)
 
 | O que mudou | Comando (na raiz do repositório) |
