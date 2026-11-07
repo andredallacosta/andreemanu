@@ -5,7 +5,7 @@
 
   // URL do Web App do Apps Script (Gerenciar implantações → a implantação existente).
   // Pode ser pública: a credencial é o token de cada convite.
-  var API = 'COLE_AQUI_A_URL_DO_WEB_APP';
+  var API = 'https://script.google.com/macros/s/AKfycbyfEHiy2sMcDXFXvy9kptuo9J1JTwaGdQuihVVgpfDBSfPqRwnV1eXDIJEKWaByqDo_/exec';
 
   var WEDDING = { y: 2027, m: 5, d: 15 };
   var TOKEN_RE = /^[23456789abcdefghjkmnpqrstuvwxyz]{6}$/;
