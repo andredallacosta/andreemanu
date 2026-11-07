@@ -171,10 +171,6 @@ button { font: inherit; color: inherit; }
   cursor: pointer; -webkit-tap-highlight-color: transparent;
   border-radius: 14px;
 }
-.map figcaption {
-  margin: 18px auto 0; max-width: 30em;
-  font-size: 14px; color: var(--ink-soft); text-wrap: balance;
-}
 .st-sv { stroke: var(--hair); stroke-width: 1; }
 .st-mn { stroke: var(--street); stroke-width: 1.2; }
 .st-mj { stroke: var(--street-strong); stroke-width: 1.6; }

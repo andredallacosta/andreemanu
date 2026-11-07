@@ -33,7 +33,7 @@ svg = f'''<svg class="map-svg" viewBox="{VX} {VY} {VW} {VH}" role="img" aria-lab
     <path class="st-tr" d="{d['tr']}"/>
   </g>
   <g class="map-labels">
-    <text transform="translate(195 266) rotate(69.4)">RSC-470</text>
+    <text transform="translate(195 266) rotate(69.4)">RST-470</text>
     <text transform="translate(337 224) rotate(-85.5)">AV. DAS FLORES</text>
     <text transform="translate(263 271.5) rotate(-7.9)">R. 12 DE MAIO</text>
     <text transform="translate(398 227) rotate(-2.5)">R. 12 DE MAIO</text>

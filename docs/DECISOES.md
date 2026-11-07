@@ -66,20 +66,17 @@ Uma página única, uma coluna, pensada primeiro para celular (quase todos vão 
 |---|---|---|
 | Ícone | Igreja em traço fino | Taças em traço fino |
 | Nome | Igreja Matriz Santo Antônio | Restaurante Mascaron |
-| Endereço | Rua do Seminário, 290 | RSC-470, km 168 |
+| Endereço | Rua do Seminário, 290 | RST-470, km 168 |
 | Botões | Maps · Waze | Maps · Waze |
 
 - Ícones desenhados no mesmo traço do círculo do monograma. **Nada de emoji.**
-- Endereço curto (rua e número/km, sem bairro nem CEP, porque a cidade já está no título da seção) e sem horário. O km é necessário para o restaurante, porque "RSC-470" sozinho não localiza nada.
-- Endereços completos, para referência: Igreja Matriz (Paróquia Santo Antônio), Rua do Seminário, 290, Centro · Mascaron Restaurante (Mascaron Paradouro), RSC-470, km 168, Centro, CEP 95334-970.
-- ⚠️ O Google Maps escreve a rodovia como **"Rod. RST-470"**, e o endereço do restaurante como **RSC-470**. Usamos RSC-470 (cartão e mapa); confirmar qual o casal prefere.
+- Endereço curto (rua e número/km, sem bairro nem CEP, porque a cidade já está no título da seção) e sem horário. O km é necessário para o restaurante, porque "RST-470" sozinho não localiza nada.
+- Endereços completos, para referência: Igreja Matriz (Paróquia Santo Antônio), Rua do Seminário, 290, Centro · Mascaron Restaurante (Mascaron Paradouro), RST-470, km 168, Centro, CEP 95334-970.
+- Rodovia escrita como **RST-470**, como no Google Maps (decidido pelo casal; o endereço encontrado na internet dizia "RST-470").
 
 - Depois dos cartões, o **mapa ilustrado** (ver seção 8) com a igreja, o restaurante e a rota entre eles.
-- Legenda do mapa:
-  > "Igreja e recepção ficam a 250 m uma da outra, uns 4 minutos a pé pela Rua 12 de Maio. Dá para ir a pé ou de carro, o restaurante tem estacionamento."
-  - 250 m / 4 min é o trajeto a pé do Google Maps ("via R. Doze de Maio"). **Não** estão na mesma rua: cada um tem endereço oficial em outra (ver tabela acima), a Doze de Maio é o caminho que liga os dois.
-  - ⚠️ **Confirmar** que o Mascaron tem estacionamento próprio. Se não tiver, tirar a última frase.
-  - Decisão: não decidir pelo convidado se vai a pé ou de carro (salto, estacionamento etc.), só informar.
+- **Sem legenda** sob o mapa (decidido pelo casal): os cartões e o mapa já dizem o necessário. A legenda que existia ("Igreja e recepção ficam a 250 m uma da outra, uns 4 minutos a pé pela Rua 12 de Maio…") foi retirada.
+  - O Mascaron tem estacionamento (confirmado), mas não é mencionado no site.
 
 ### 3.4 Pré-confirmação
 Ver seção 5.
@@ -248,9 +245,9 @@ Só as cores do monograma. **Sem cor de destaque**: botões e detalhes usam a pr
 - Desenhado a partir das **ruas reais do OpenStreetMap** (dados em `assets/mapa/osm-vila-flores.json`), em traço fino grafite sobre creme, no estilo do monograma.
 - Mostra a BR-470, a Av. das Flores, as ruas do entorno, os dois locais como **pinos em círculo** (anel + ponto), a rota entre eles, a rosa dos ventos ("N") e a escala de 100 m.
 - Rota a pé: **~250 m** (253 m pelo OSM, 250 m / 4 min pelo Google), um de cada lado da Av. das Flores, ligados pela **Rua 12 de Maio** (no Google, "R. Doze de Maio"; no OSM, o trecho em frente ao Mascaron está sem nome). O restaurante sai para a Doze de Maio e a igreja é acessada por ela, pelo lado norte.
-- ⚠️ **Correção de 07/11/2026:** a versão anterior dizia "ambos na Rua 12 de Maio, 207 m". Estava errado: os endereços oficiais são Rua do Seminário (igreja) e RSC-470 (restaurante), e a rota cortava quadras em diagonal nas duas pontas. Agora cada local é ligado ao ponto mais próximo da Doze de Maio (`tools/mapa/mkmap.py`), o que reproduz o trajeto do Google.
+- ⚠️ **Correção de 07/11/2026:** a versão anterior dizia "ambos na Rua 12 de Maio, 207 m". Estava errado: os endereços oficiais são Rua do Seminário (igreja) e RST-470 (restaurante), e a rota cortava quadras em diagonal nas duas pontas. Agora cada local é ligado ao ponto mais próximo da Doze de Maio (`tools/mapa/mkmap.py`), o que reproduz o trajeto do Google.
 - Coordenadas já projetadas para SVG: `assets/mapa/ruas-projetadas.json` (script: `tools/mapa/mkmap.py`).
-- O SVG final é gerado por `tools/mapa/mksvg.py`, que recorta ~560 × 420 m em volta dos dois locais e injeta o mapa no `index.html`. Rótulos: RSC-470, Av. das Flores, R. 12 de Maio (nos dois trechos), R. do Seminário, "IGREJA" e "MASCARON" nos pinos.
+- O SVG final é gerado por `tools/mapa/mksvg.py`, que recorta ~560 × 420 m em volta dos dois locais e injeta o mapa no `index.html`. Rótulos: RST-470, Av. das Flores, R. 12 de Maio (nos dois trechos), R. do Seminário, "IGREJA" e "MASCARON" nos pinos.
 - Para regerar: `python3 tools/mapa/mkmap.py && python3 tools/mapa/mksvg.py`.
 
 ### Coordenadas oficiais (dos links do Google Maps enviados pelo casal)
@@ -404,9 +401,9 @@ O que aparece no balão antes de a pessoa clicar. **Igual para todos os convites
 ## 13. Pendências
 
 **Do casal:**
-- [ ] Confirmar se o Mascaron tem **estacionamento próprio** (legenda do mapa, em `index.html`).
-- [ ] Confirmar o nome **"Igreja Matriz Santo Antônio"** (o André acha que sim).
-- [ ] Aprovar ou ajustar o texto da mensagem do WhatsApp (`MENSAGEM` no topo do `apps-script/Code.gs`).
+- [x] Estacionamento do Mascaron: tem (não aparece no site, a legenda saiu).
+- [x] Nome da igreja: fica **"Igreja Matriz Santo Antônio"**.
+- [x] Mensagem do WhatsApp aprovada: "Oi {nomes}! Temos uma novidade 💍 {link}".
 - [ ] Instalar o Apps Script na planilha, publicar o Web App e colar a URL em `js/site.js` (passo a passo em [INSTALACAO.md](INSTALACAO.md)).
 - [ ] Criar a aba "Convites" (pelo menu) e cadastrar os convites.
 - [ ] Configurar o DNS na Hostinger e ativar o GitHub Pages.
